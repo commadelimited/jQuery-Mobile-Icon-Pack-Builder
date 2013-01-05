@@ -17,11 +17,11 @@ import os.path
 FONT_FILE = 'fontawesome-webfont.ttf'
 TMP_FILE_DIR = 'tmp'
 DOWNLOAD_DIR = 'download'
-ADMINS = ['grantjgordon@gmail.com', 'gwpc114@gmail.com']
+ADMINS = ['andy@commadelimited.com']
 
 ## Create flask app
 app = Flask(__name__)
-app.config.from_envvar('ICNFNT_CONFIG')
+app.config.from_envvar('BUILDER_CONFIG')
 #app.config.from_object(__name__)
 
 if app.config['DEBUG']:
