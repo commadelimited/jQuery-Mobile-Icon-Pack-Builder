@@ -2199,8 +2199,8 @@ h2 small {
   color: #000;
 }
 #glyph-list li.selected {
-  box-shadow: 0px 0px 10px #08c;
-  background-color: #c7e7ff;
+  box-shadow: 0px 0px 10px #0A8A0A;
+  background-color: #BFF1C3;
   color: #000;
 }
 #glyph-list li i {
