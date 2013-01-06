@@ -1,24 +1,8 @@
-@import "../bootstrap/less/bootstrap.less";
+/*@import "../bootstrap/less/bootstrap.less";*/
 
-.header {
-	background-color: @blue;
-	.hero-unit {
-		color: #ffffff;
-		background-color: transparent;
-		padding: 30px 60px;
-		a {
-			&.about {
-				font-weight: bold;
-				margin-right: 20px;
-			}
-			color: #98F7FF;
-			cursor: pointer;
-		}
-	}
-}
 h2 { font-size: 24px; }
 .builder {
-	background-color: @white;
+	background-color: #ffffff;
 	padding: 0 20px 50px 20px;
 	h2 {
 		margin-top: 10px;
@@ -65,7 +49,20 @@ h2 { font-size: 24px; }
 	box-shadow: inset 0px 2px 10px rgba(0,0,0,.5);
 	#selected-glyph-list {
 		margin-left: 10px;
-		.clearfix();
+		.clearfix {
+		  *zoom: 1;
+		  &:before,
+		  &:after {
+		    display: table;
+		    content: "";
+		    // Fixes Opera/contenteditable bug:
+		    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		    line-height: 0;
+		  }
+		  &:after {
+		    clear: both;
+		  }
+		}
 		.preview {
 			padding: 5px 0px 5px 10px;
 			margin-bottom: 5px;
@@ -95,8 +92,10 @@ h2 { font-size: 24px; }
 			display: none;
 			width: 168px;
 			margin-left: 5px;
-			background-color: @white;
-			.border-radius(5px);
+			background-color: #ffffff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
 			-webkit-box-shadow: 0px 2px 5px rgba(0,0,0,.25);
 			   -moz-box-shadow: 0px 2px 5px rgba(0,0,0,.25);
 					box-shadow: 0px 2px 5px rgba(0,0,0,.25);
