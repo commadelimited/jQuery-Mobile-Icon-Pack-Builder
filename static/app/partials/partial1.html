@@ -13,8 +13,10 @@
 		<div class="span9">
 			<h2>
 				<span>1. Choose your icons </span>
-				<small> Click to add to your set.</small>
-				<a class="js-btn-none" ng-click="selectNone()" href="">Clear</a>
+				<small>
+					Click to add to your set.
+					<a class="js-btn-none" ng-click="selectNone()" href="">Clear</a>
+				</small>
 			</h2>
 			<ul id="glyph-list" >
 				<li ng-repeat="glyph in glyphs" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)" rel="tooltip" tooltip="glyph.name">
