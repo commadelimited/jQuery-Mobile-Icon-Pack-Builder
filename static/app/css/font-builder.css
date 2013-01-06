@@ -2191,17 +2191,17 @@ h2 small {
   margin-right: 6px;
   margin-bottom: 6px;
   border-radius: 3px;
-  color: #666;
+  color: #666666;
   cursor: pointer;
 }
 #glyph-list li:hover {
-  background-color: #dff1ff;
-  color: #000;
+  background-color: #8CDA96;
+  color: #000000;
 }
 #glyph-list li.selected {
   box-shadow: 0px 0px 10px #0A8A0A;
   background-color: #BFF1C3;
-  color: #000;
+  color: #000000;
 }
 #glyph-list li i {
   font-size: 24px;
