@@ -10,27 +10,34 @@
 
 <div class="container builder">
 	<div id="glyphapp" class="row">
-		<h2>
-			<span>1. Choose your icons </span>
-			<small> Click to add to your set.</small>
-		</h2>
+		<div class="span9">
+			<h2>
+				<span>1. Choose your icons </span>
+				<small> Click to add to your set.</small>
+			</h2>
 			<ul id="glyph-list" >
 				<li ng-repeat="glyph in glyphs" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)" rel="tooltip" tooltip="glyph.name">
 					<i class="icon-{{glyph.name}}"></i>
 				</li>
 			</ul>
-	</div>
-	<h2>2. Preview your icon set <small> Click an icon to remove it.</small></h2>
-	<div id="selected-view" class="row">
-		<ul id="selected-glyph-list" class="unstyled">
-			<li ng-repeat="glyph in glyphs" class="preview" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)">
-				<span class="remove icon-remove-sign"></span>
-				<span class="name"><i class="icon-{{glyph.name}} icon-large"></i> icon-{{glyph.name}}</span>
-			</li>
-		</ul>
-	</div>
-	<h2>3. Download your icon font kit <small>(includes CSS, LESS, SCSS, & SASS files)</small></h2>
-	<div id="download" ng-click="downloadNow()">
-		<button class="btn btn-large btn-success icon-download-alt icon-large btn-download"> Download Now</button>
+		</div>
+		<div class="span3">
+			<h2>2. Preview your icon set <small> Click an icon to remove it.</small></h2>
+			<div id="selected-view" class="row">
+				<ul id="selected-glyph-list" class="unstyled">
+					<li ng-repeat="glyph in glyphs" class="preview" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)">
+						<span class="remove icon-remove-sign"></span>
+						<span class="name"><i class="icon-{{glyph.name}} icon-large"></i> icon-{{glyph.name}}</span>
+					</li>
+				</ul>
+			</div>
+			<h2>
+				3. Download<br />
+				<small>(CSS, LESS, SCSS, & SASS files)</small>
+			</h2>
+			<div id="download" ng-click="downloadNow()">
+				<button class="btn btn-large btn-success icon-download-alt icon-large btn-download"> Download Now</button>
+			</div>
+		</div>
 	</div>
 </div>
