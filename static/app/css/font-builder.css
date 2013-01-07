@@ -2172,6 +2172,9 @@ h2 {
 h2 small {
   font-size: 14px;
 }
+.btn-large {
+  width: 100%;
+}
 .builder {
   background-color: #ffffff;
   padding: 0 20px 50px 20px;
