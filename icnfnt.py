@@ -22,6 +22,7 @@ ADMINS = ['andy@commadelimited.com']
 ## Create flask app
 app = Flask(__name__)
 app.config.from_envvar('BUILDER_CONFIG')
+app.config['DEBUG'] = True
 #app.config.from_object(__name__)
 
 if app.config['DEBUG']:
