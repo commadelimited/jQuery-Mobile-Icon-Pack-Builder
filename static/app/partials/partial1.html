@@ -19,7 +19,7 @@
 				</small>
 			</h2>
 			<ul id="glyph-list" >
-				<li ng-repeat="glyph in glyphs" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)" rel="tooltip" tooltip="glyph.name">
+				<li ng-repeat="glyph in glyphs" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)">
 					<i class="icon-{{glyph.name}}"></i>
 				</li>
 			</ul>
