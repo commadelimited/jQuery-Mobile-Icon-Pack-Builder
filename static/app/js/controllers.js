@@ -85,13 +85,6 @@ function FontBuilderCtrl($scope) {
       window.alert("Please select at least one icon.");
     }
 	};
-
-  // Angular breaks in-page anchors, so overriding with this jquery plugin
-  $scope.scrollToAbout = function(){
-    $.smoothScroll({
-      scrollTarget: '.megafooter'
-    });
-  };
 }
 
 
