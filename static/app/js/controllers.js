@@ -24,23 +24,21 @@
 /* Controllers */
 
 
-function FontBuilderCtrl($scope, $anchorScroll, $http) {
+function FontBuilderCtrl($scope) {
 	$scope.glyphs = glyphs;
-	
+
 	// Mark or unmark an icon as selected
   $scope.toggleSelected = function(glyph){
     if (glyph.selected) {
       glyph.selected = false;
 			glyph.selectedclass = '';
-      _gaq.push(['_trackEvent', 'Glyphs', glyph.name + ' De-selected']);
-		
+
     } else if (!glyph.selected) {
       glyph.selected = true;
 			glyph.selectedclass = 'selected';
-      _gaq.push(['_trackEvent', 'Glyphs', glyph.name + ' Selected']);
 		}
 
-	}
+	};
 
   // Select all icons
 	$scope.selectAll = function() {
@@ -48,7 +46,7 @@ function FontBuilderCtrl($scope, $anchorScroll, $http) {
 			glyph.selected = true;
 			glyph.selectedclass = 'selected';
 		});
-	}
+	};
 
   // Kill all selections
 	$scope.selectNone = function() {
@@ -56,12 +54,12 @@ function FontBuilderCtrl($scope, $anchorScroll, $http) {
 			glyph.selected = false;
 			glyph.selectedclass = '';
 		});
-	}
+	};
 
   // Make the call to download the font kit
 	$scope.downloadNow = function() {
 		var selectedGlyphs = [];
-		
+
     // Figure out which glyphs are selected
     angular.forEach(glyphs, function(glyph){
 		 	if(glyph.selected){
@@ -74,28 +72,19 @@ function FontBuilderCtrl($scope, $anchorScroll, $http) {
       $.ajax({
         url: "/api/createpack",
         type: 'POST',
-        data: { 
+        data: {
             json_data: JSON.stringify(selectedGlyphs)
         },
         context: document.body
       }).done(function(url) {
-        _gaq.push(['_trackEvent', 'Download', 'Success']);
         window.location.href = url;
       });
     } else {
 
       // Prevent user from making request if no icons are selected
-      alert("Please select at least one icon.");
-      _gaq.push(['_trackEvent', 'Download', 'Rejected - No glyphs selected.']);
+      window.alert("Please select at least one icon.");
     }
-	}
-
-  // Angular breaks in-page anchors, so overriding with this jquery plugin
-  $scope.scrollToAbout = function(){
-    $.smoothScroll({
-      scrollTarget: '.megafooter'
-    });
-  }
+	};
 }
 
 

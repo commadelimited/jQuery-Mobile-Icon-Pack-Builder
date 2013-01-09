@@ -3,7 +3,7 @@
     <h1>Builder</h1>
     <h2>for jQuery Mobile Icon Pack</h2>
     <p>
-      <span>Create a custom <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome 3.0</a> icon-font kit with just the icons you want.</span>
+      <span>Create a custom <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome 3.0</a> icon-font kit with only the icons you want.</span>
     </p>
   </div>
 </div>
@@ -19,7 +19,7 @@
 				</small>
 			</h2>
 			<ul id="glyph-list" >
-				<li ng-repeat="glyph in glyphs" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)" rel="tooltip" tooltip="glyph.name">
+				<li ng-repeat="glyph in glyphs" ng-class="glyph.selectedclass" ng-click="toggleSelected(glyph)">
 					<i class="icon-{{glyph.name}}"></i>
 				</li>
 			</ul>
