@@ -125,7 +125,7 @@ def create_subfont(identifier,req_chars):
 
     # Add each character we want to the font object and related style and html files
     for character in req_chars:
-        html_out_file.write(''.join(['<tr><td><i class="icon-', str(character['name']), '"></i></td><td>.icon-', str(character['name']), '</td></tr>']))
+        html_out_file.write(''.join(['<a href="#" data-role="button" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
         less_out_file.write(''.join(['.icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
 
@@ -160,7 +160,7 @@ def create_subfont(identifier,req_chars):
     f.close()
 
     # Add the closing line to the test.html file game
-    html_out_file.write('</table></body></html>')
+    html_out_file.write('</div></div></body></html>')
 
     # Close all the files
     html_out_file.close()
