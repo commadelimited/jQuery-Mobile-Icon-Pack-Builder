@@ -21,7 +21,6 @@
 	<div data-role="page">
 
 		<div data-role="header">
-			<a href="../index.html" data-icon="home">Home</a>
 			<h1>Builder: Custom Icon Set</h1>
 		</div>
 
