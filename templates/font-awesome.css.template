@@ -30,8 +30,7 @@
   font-style: normal;
 }
 .ui-icon {
-  background-image: none;
-  color: #ffffff;
+  background-image: none;]
 }
 
 /*  Font Awesome styles

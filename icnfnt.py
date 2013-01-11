@@ -127,18 +127,19 @@ def create_subfont(identifier,req_chars):
     for character in req_chars:
 
         class_name = '.ui-icon-%s:before' %  str(character['name'])
+        declaration = '{ content: \\f%s; }' %  str(character['uni'])
 
         html_out_file.write(''.join(['<a href="#" data-role="button" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
-        less_out_file.write(''.join(['.ui-icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        less_out_file.write(''.join([class_name, declaration, "\n"]))
 
         lessie7_out_file.write(''.join(['.ui-icon-', str(character['name']), "\t\t", "{ .ie7icon('&#xf", str(character['uni']), ";'); }", "\n"]))
 
-        sass_out_file.write(''.join(['.ui-icon-', str(character['name']), ':before', "\n\t", 'content: "\\f', str(character['uni']), '"', "\n\n"]))
+        sass_out_file.write(''.join([class_name, "\n\t", 'content: "\\f', str(character['uni']), '"', "\n\n"]))
 
-        scss_out_file.write(''.join(['.ui-icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        scss_out_file.write(''.join([class_name, declaration, "\n"]))
 
-        css_out_file.write(''.join([class_name, '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        css_out_file.write(''.join([class_name, declaration, '\n']))
 
         cssie7_out_file.write(''.join(['.ui-icon-', str(character['name']), " { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf", str(character['uni']), ";&nbsp;'); }", "\n"]))
 
