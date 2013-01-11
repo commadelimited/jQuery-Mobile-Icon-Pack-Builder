@@ -98,11 +98,6 @@ def create_subfont(identifier,req_chars):
     less_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.less'])), 'w')
     less_out_file.write(less_data)
 
-    # Set up the ie compatibility less file
-    lessie7_data = open(''.join([template_path, 'font-awesome-ie7.less.template'])).read()
-    lessie7_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '-ie7.less'])), 'w')
-    lessie7_out_file.write(lessie7_data)
-
     # Set up the sass file
     sass_data = open(''.join([template_path, 'font-awesome.sass.template'])).read()
     sass_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.sass'])), 'w')
@@ -129,11 +124,9 @@ def create_subfont(identifier,req_chars):
         class_name = '.ui-icon-%s:before' %  str(character['name'])
         declaration = '{ content: "\\f%s"; }' %  str(character['uni'])
 
-        html_out_file.write(''.join(['<a href="#" data-role="button" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
+        html_out_file.write(''.join(['<a href="#" data-role="button" data-theme="b" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
         less_out_file.write(''.join([class_name, declaration, "\n"]))
-
-        lessie7_out_file.write(''.join(['.ui-icon-', str(character['name']), "\t\t", "{ .ie7icon('&#xf", str(character['uni']), ";'); }", "\n"]))
 
         sass_out_file.write(''.join([class_name, "\n\t", 'content: "\\f', str(character['uni']), '"', "\n\n"]))
 
