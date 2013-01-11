@@ -162,7 +162,6 @@ def create_subfont(identifier,req_chars):
     # Close all the files
     html_out_file.close()
     less_out_file.close()
-    lessie7_out_file.close()
     sass_out_file.close()
     scss_out_file.close()
     css_out_file.close()
@@ -183,4 +182,4 @@ def create_subfont(identifier,req_chars):
 
 
 if __name__ == '__main__':
-    app.run(host=app.config['LISTEN_ADDRESS'],port=app.config['LISTEN_PORT'])
+    app.run(host=app.config['LISTEN_ADDRESS'], port=app.config['LISTEN_PORT'])
