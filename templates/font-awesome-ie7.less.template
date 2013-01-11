@@ -25,7 +25,6 @@
 [class*=" icon-"] {
   padding-right:.3em;
 }
-
 .icon-large {
   font-size: 4/3em;
   margin-top: -4px;
@@ -34,7 +33,6 @@
   padding-bottom: 3px;
   vertical-align: -20%;
 }
-
 .btn, .nav {
   [class^="icon-"],
   [class*=" icon-"] {
@@ -46,18 +44,14 @@
     line-height: .9em;
   }
 }
-
 a [class^="icon-"],
 a [class*=" icon-"] {
   cursor: pointer;
 }
-
 ul.icons {
   text-indent: -1.5em;
   margin-left: 3em;
 }
-
-
 .ie7icon(@inner) {
   *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '@{inner}')";
 }
