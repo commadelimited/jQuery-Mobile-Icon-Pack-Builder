@@ -125,6 +125,9 @@ def create_subfont(identifier,req_chars):
 
     # Add each character we want to the font object and related style and html files
     for character in req_chars:
+
+        class_name = '.ui-icon-%s:before' %  str(character['name'])
+
         html_out_file.write(''.join(['<a href="#" data-role="button" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
         less_out_file.write(''.join(['.ui-icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
@@ -135,7 +138,7 @@ def create_subfont(identifier,req_chars):
 
         scss_out_file.write(''.join(['.ui-icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
 
-        css_out_file.write(''.join(['.ui-icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        css_out_file.write(''.join([class_name, '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
 
         cssie7_out_file.write(''.join(['.ui-icon-', str(character['name']), " { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf", str(character['uni']), ";&nbsp;'); }", "\n"]))
 
