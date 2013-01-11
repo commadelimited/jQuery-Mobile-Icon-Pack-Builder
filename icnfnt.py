@@ -90,7 +90,7 @@ def create_subfont(identifier,req_chars):
 
     # Set up the html test file
     html_data = open(''.join([template_path, 'test.html.template'])).read()
-    html_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, 'icon-reference.html'), 'w')
+    html_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, 'index.html'), 'w')
     html_out_file.write(html_data)
 
     # Set up the less file
