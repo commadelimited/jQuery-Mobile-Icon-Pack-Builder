@@ -2221,6 +2221,9 @@ h2 small {
 #selected-view #selected-glyph-list {
   margin: auto 25px 0 5px;
 }
+#selected-view #selected-glyph-list li:first-child {
+  margin-top: 10px;
+}
 #selected-view #selected-glyph-list .clearfix {
   *zoom: 1;
 }
