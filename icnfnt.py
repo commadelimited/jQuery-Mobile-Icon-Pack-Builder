@@ -122,7 +122,7 @@ def create_subfont(identifier,req_chars):
     for character in req_chars:
 
         class_name = '.ui-icon-%s:before' % str(character['name'])
-        declaration = '{ content: "\\f%s"; margin-top: %s; }' % (str(character['uni']), str(character['marginTop']))
+        declaration = '{ content: "\\f%s"; margin-top: %s; margin-left: %s; }' % (str(character['uni']), str(character['marginTop']), str(character['marginLeft']))
 
         html_out_file.write(''.join(['<a href="#" data-role="button" data-theme="b" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
