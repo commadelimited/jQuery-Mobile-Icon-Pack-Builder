@@ -158,6 +158,7 @@ def create_subfont(identifier,req_chars):
     less_out_file.close()
     css_out_file.close()
     cssie7_out_file.close()
+    scss_out_file.close()
 
     # Creat zip file for download
     import subprocess
