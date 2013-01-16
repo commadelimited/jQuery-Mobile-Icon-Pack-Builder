@@ -38,7 +38,12 @@
 
 /*  Font Awesome styles
     ------------------------------------------------------- */
-/* includes sprites.less reset */
+[class^="ui-icon-"]:before,[class*=" ui-icon-"]:before {
+  font-family:FontAwesome!important;
+  font-weight:400;
+  font-style:normal;
+  display:inline-block;
+}
 [class^="icon-"],
 [class*=" icon-"] {
   font-family: FontAwesome;
