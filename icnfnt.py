@@ -10,6 +10,7 @@
 
 from flask import Flask, request
 import os.path
+import re
 
 ### Configuration ###
 
@@ -90,23 +91,13 @@ def create_subfont(identifier,req_chars):
 
     # Set up the html test file
     html_data = open(''.join([template_path, 'test.html.template'])).read()
-    html_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, 'icon-reference.html'), 'w')
+    html_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, 'index.html'), 'w')
     html_out_file.write(html_data)
 
     # Set up the less file
     less_data = open(''.join([template_path, 'font-awesome.less.template'])).read()
     less_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.less'])), 'w')
     less_out_file.write(less_data)
-
-    # Set up the ie compatibility less file
-    lessie7_data = open(''.join([template_path, 'font-awesome-ie7.less.template'])).read()
-    lessie7_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '-ie7.less'])), 'w')
-    lessie7_out_file.write(lessie7_data)
-
-    # Set up the sass file
-    sass_data = open(''.join([template_path, 'font-awesome.sass.template'])).read()
-    sass_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.sass'])), 'w')
-    sass_out_file.write(sass_data)
 
     # Set up the scss file
     scss_data = open(''.join([template_path, 'font-awesome.scss.template'])).read()
@@ -125,19 +116,19 @@ def create_subfont(identifier,req_chars):
 
     # Add each character we want to the font object and related style and html files
     for character in req_chars:
-        html_out_file.write(''.join(['<tr><td><i class="icon-', str(character['name']), '"></i></td><td>.icon-', str(character['name']), '</td></tr>']))
 
-        less_out_file.write(''.join(['.icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        class_name = '.ui-icon-%s:before' % str(character['name'])
+        declaration = ' { content: "\\f%s"; margin-top: %s; margin-left: %s; }' % (str(character['uni']), str(character['marginTop']), str(character['marginLeft']))
 
-        lessie7_out_file.write(''.join(['.icon-', str(character['name']), "\t\t", "{ .ie7icon('&#xf", str(character['uni']), ";'); }", "\n"]))
+        html_out_file.write(''.join(['<a href="#" data-role="button" data-theme="b" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
-        sass_out_file.write(''.join(['.icon-', str(character['name']), ':before', "\n\t", 'content: "\\f', str(character['uni']), '"', "\n\n"]))
+        less_out_file.write(''.join([class_name, declaration, "\n"]))
 
-        scss_out_file.write(''.join(['.icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        scss_out_file.write(''.join([class_name, declaration, "\n"]))
 
-        css_out_file.write(''.join(['.icon-', str(character['name']), ':before', "\t\t", '{ content: "\\f', str(character['uni']), '"; }', "\n"]))
+        css_out_file.write(''.join([class_name, declaration, '\n']))
 
-        cssie7_out_file.write(''.join(['.icon-', str(character['name']), " { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf", str(character['uni']), ";&nbsp;'); }", "\n"]))
+        cssie7_out_file.write(''.join(['.ui-icon-', str(character['name']), " { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf", str(character['uni']), ";&nbsp;'); }", "\n"]))
 
         f.selection.select(("more", "unicode", None), ''.join(['uniF', str(character['uni'])]))
 
@@ -160,16 +151,14 @@ def create_subfont(identifier,req_chars):
     f.close()
 
     # Add the closing line to the test.html file game
-    html_out_file.write('</table></body></html>')
+    html_out_file.write('</div></div></body></html>')
 
     # Close all the files
     html_out_file.close()
     less_out_file.close()
-    lessie7_out_file.close()
-    sass_out_file.close()
-    scss_out_file.close()
     css_out_file.close()
     cssie7_out_file.close()
+    scss_out_file.close()
 
     # Creat zip file for download
     import subprocess
@@ -186,4 +175,4 @@ def create_subfont(identifier,req_chars):
 
 
 if __name__ == '__main__':
-    app.run(host=app.config['LISTEN_ADDRESS'],port=app.config['LISTEN_PORT'])
+    app.run(host=app.config['LISTEN_ADDRESS'], port=app.config['LISTEN_PORT'])
