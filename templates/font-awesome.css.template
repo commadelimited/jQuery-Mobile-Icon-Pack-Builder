@@ -37,12 +37,11 @@
 
 /*  Font Awesome styles
     ------------------------------------------------------- */
-/* includes sprites.less reset */
 [class^="ui-icon-"]:before,[class*=" ui-icon-"]:before {
-font-family:FontAwesome!important;
-font-weight:400;
-font-style:normal;
-display:inline-block;
+  font-family:FontAwesome!important;
+  font-weight:400;
+  font-style:normal;
+  display:inline-block;
 }
 [class^="icon-"],
 [class*=" icon-"] {
@@ -63,9 +62,4 @@ display:inline-block;
 a [class^="icon-"],
 a [class*=" icon-"] {
   display: inline-block;
-}
-/* makes the font 33% larger relative to the icon container */
-.icon-large:before {
-  vertical-align: -10%;
-  font-size: 1.3333333333333333em;
 }

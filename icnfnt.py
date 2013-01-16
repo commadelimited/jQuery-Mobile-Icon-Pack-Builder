@@ -10,6 +10,7 @@
 
 from flask import Flask, request
 import os.path
+import re
 
 ### Configuration ###
 
@@ -98,11 +99,6 @@ def create_subfont(identifier,req_chars):
     less_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.less'])), 'w')
     less_out_file.write(less_data)
 
-    # Set up the sass file
-    sass_data = open(''.join([template_path, 'font-awesome.sass.template'])).read()
-    sass_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.sass'])), 'w')
-    sass_out_file.write(sass_data)
-
     # Set up the scss file
     scss_data = open(''.join([template_path, 'font-awesome.scss.template'])).read()
     scss_out_file = open(os.path.join(os.curdir, TMP_FILE_DIR, identifier, ''.join([name, '.scss'])), 'w')
@@ -122,13 +118,11 @@ def create_subfont(identifier,req_chars):
     for character in req_chars:
 
         class_name = '.ui-icon-%s:before' % str(character['name'])
-        declaration = '{ content: "\\f%s"; margin-top: %s; margin-left: %s; }' % (str(character['uni']), str(character['marginTop']), str(character['marginLeft']))
+        declaration = ' { content: "\\f%s"; margin-top: %s; margin-left: %s; }' % (str(character['uni']), str(character['marginTop']), str(character['marginLeft']))
 
         html_out_file.write(''.join(['<a href="#" data-role="button" data-theme="b" data-icon="', str(character['name']), '">data-icon="', str(character['name']), '"</a>']))
 
         less_out_file.write(''.join([class_name, declaration, "\n"]))
-
-        sass_out_file.write(''.join([class_name, "\n\t", 'content: "\\f', str(character['uni']), '"', "\n\n"]))
 
         scss_out_file.write(''.join([class_name, declaration, "\n"]))
 
@@ -162,8 +156,6 @@ def create_subfont(identifier,req_chars):
     # Close all the files
     html_out_file.close()
     less_out_file.close()
-    sass_out_file.close()
-    scss_out_file.close()
     css_out_file.close()
     cssie7_out_file.close()
 

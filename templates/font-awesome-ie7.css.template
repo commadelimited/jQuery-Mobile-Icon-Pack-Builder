@@ -20,4 +20,5 @@
     Work: Lead Product Designer @ http://kyruus.com
 
     */
-[class^="icon-"],[class*=" icon-"]{padding-right:.3em}.icon-large{font-size:1.3333333333333333em;margin-top:-4px;padding-top:3px;margin-bottom:-4px;padding-bottom:3px;vertical-align:-20%}.btn [class^="icon-"],.nav [class^="icon-"],.btn [class*=" icon-"],.nav [class*=" icon-"]{vertical-align:inherit;margin-top:-4px;padding-top:3px;margin-bottom:-4px;padding-bottom:3px;line-height:.9em}a [class^="icon-"],a [class*=" icon-"]{cursor:pointer}ul.icons{text-indent:-1.5em;margin-left:3em}
+[class^="icon-"],[class*=" icon-"]{padding-right:.3em}
+a [class^="icon-"],a [class*=" icon-"]{cursor:pointer}
