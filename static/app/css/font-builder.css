@@ -2183,6 +2183,9 @@ h2 small {
   margin-top: 10px;
   margin-bottom: 5px;
 }
+.span9 {
+  margin-left: 0;
+}
 .span9 h2 {
   margin-left: 20px;
 }
