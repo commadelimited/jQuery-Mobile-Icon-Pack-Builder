@@ -217,8 +217,6 @@ var glyphs =
 	{name:"key", uni:"084", marginTop:"1px", marginLeft: "2px"},
 	{name:"cogs", uni:"085", marginTop:"1px", marginLeft: "1px"},
 	{name:"comments", uni:"086", marginTop:"1px", marginLeft: "2px"},
-	{name:"thumbs-up", uni:"087", marginTop:"2px", marginLeft: "3px"},
-	{name:"thumbs-down", uni:"088", marginTop:"2px", marginLeft: "3px"},
 	{name:"star-half", uni:"089", marginTop:"2px", marginLeft: "-4px"},
 	{name:"heart-empty", uni:"08a", marginTop:"2px", marginLeft: "2px"},
 	{name:"signout", uni:"08b", marginTop:"2px", marginLeft: "4px"},
