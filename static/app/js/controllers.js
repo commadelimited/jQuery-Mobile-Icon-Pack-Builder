@@ -339,9 +339,6 @@ var glyphs =
 	{name:"github-alt", uni:"113", marginTop:"2px", marginLeft: "2px"},
 	{name:"folder-close-alt", uni:"114", marginTop:"2px", marginLeft: "2px"},
 	{name:"folder-open-alt", uni:"115",  marginTop:"2px", marginLeft: "2px"},
-
-
-
 	{name:"expand-alt", uni:"116", marginTop:"2px", marginLeft: "0px"},
 	{name:"collapse-alt", uni:"117", marginTop:"2px", marginLeft: "0px"},
 	{name:"smile", uni:"118", marginTop:"1px", marginLeft: "0px"},
