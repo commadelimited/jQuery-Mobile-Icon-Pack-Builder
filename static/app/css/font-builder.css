@@ -813,7 +813,7 @@ address {
 @font-face {
   font-family: 'FontAwesome';
   src: url('../bootstrap/font/fontawesome-webfont.eot');
-  src: url('../bootstrap/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../bootstrap/font/fontawesome-webfont.ttf') format('truetype'), url('../bootstrap/font/fontawesome-webfont.woff') format('woff');
+  src: url('../bootstrap/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../bootstrap/font/fontawesome-webfont.woff') format('woff'), url('../bootstrap/font/fontawesome-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
