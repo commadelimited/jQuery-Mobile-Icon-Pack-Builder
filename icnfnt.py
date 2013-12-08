@@ -9,7 +9,12 @@
 """
 
 from flask import Flask, request
+import os
 import os.path
+import json
+import time
+import random
+import logging
 
 ### Configuration ###
 
@@ -27,15 +32,13 @@ app.config.from_envvar('BUILDER_CONFIG')
 
 if app.config['DEBUG']:
     from werkzeug import SharedDataMiddleware
-    import os
     app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
       '/': os.path.join(os.path.dirname(__file__), 'static')
     })
 
 if not app.debug:
-    import logging
     from logging.handlers import SMTPHandler
-    mail_handler = SMTPHandler(app.config['NOTIFICATION_SMTP_SERVER'], app.config['NOTIFICATION_FROM_ADDRESS'], ADMINS, 'YourApplication Failed')
+    mail_handler = SMTPHandler(app.config['NOTIFICATION_SMTP_SERVER'], app.config['NOTIFICATION_FROM_ADDRESS'], ADMINS, 'Builder Failed')
     mail_handler.setLevel(logging.ERROR)
     app.logger.addHandler(mail_handler)
 
@@ -44,9 +47,6 @@ if not app.debug:
 def createpack():
     json_data = request.form['json_data']
 
-    import json
-    import time
-    import random
     request_data = json.loads(json_data)
     identifier = ''.join([str(time.time()), '-', str(random.randint(0, 99999))])
 
