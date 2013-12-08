@@ -10,7 +10,6 @@
 
 from flask import Flask, request
 import os.path
-import re
 
 ### Configuration ###
 

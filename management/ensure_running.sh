@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NOTIFY_ADDRESS="gwpc114@gmail.com"
-SUBJECT="There is a problem with www.icnfnt.com"
+NOTIFY_ADDRESS="andy@commadelimited.com"
+SUBJECT="There is a problem with Builder"
 MESSAGE_BODY=`mktemp`
 LOG_FILE=/var/log/tornado/tornado.5000.log
 LOG_LINES=40
@@ -31,7 +31,7 @@ if [ "$STATUS" = "Tornado server not running." ]; then
 	STATUS=$(start)
 	LOG_TAIL=`tail --lines $LOG_LINES $LOG_FILE`
 	echo "Hello," >> $MESSAGE_BODY
-	echo "There was an issue with www.icnfnt.com, I tried restarting it and this is the current status:" >> $MESSAGE_BODY
+	echo "There was an issue with Builder, I tried restarting it and this is the current status:" >> $MESSAGE_BODY
 	echo "$STATUS" >> $MESSAGE_BODY
 	echo "" >> $MESSAGE_BODY
 	echo "Here are the last $LOG_LINES from the log file for the application:" >> $MESSAGE_BODY
@@ -41,7 +41,7 @@ if [ "$STATUS" = "Tornado server not running." ]; then
 	echo "" >> $MESSAGE_BODY
 	echo "Sorry about the problems. Hope you figure it out :-)" >> $MESSAGE_BODY
 	mail -s "$SUBJECT" "$NOTIFY_ADDRESS" < $MESSAGE_BODY
-	
+
 	echo "Mail sent."
 fi
 
