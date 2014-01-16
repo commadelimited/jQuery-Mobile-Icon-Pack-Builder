@@ -57,8 +57,8 @@
                     3. Download<br>
                     <small>(CSS, LESS &amp; SCSS files)</small>
                 </h2>
-                <div id="download" ng-click="downloadNow()">
-                    <button class="btn btn-large btn-success icon-download-alt icon-large btn-download"> Download Now</button>
+                <div id="download">
+                    <button class="btn btn-large btn-success icon-large btn-download"> Download Now</button>
                 </div>
                 <p>
                     <br>
