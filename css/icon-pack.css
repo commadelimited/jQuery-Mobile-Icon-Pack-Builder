@@ -292,6 +292,14 @@ h2 small {
 .span9 h2 {
   margin-left: 20px;
 }
+
+#previewColor {
+  margin-left: 20px;
+}
+  #newColor {
+    width: 70px;
+  }
+
 #glyph-list li,
 #selected-glyph-list li
 {

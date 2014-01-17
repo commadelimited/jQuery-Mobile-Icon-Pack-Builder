@@ -1,6 +1,7 @@
 $(function(){
 
-    var $list = $('#glyph-list'),
+    var currentColor = '#000000',
+        $list = $('#glyph-list'),
         $selected_list = $('#selected-glyph-list');
 
     // clear all icons
@@ -11,6 +12,21 @@ $(function(){
         // remove them from the selected list
         $selected_list.find('li').remove();
     });
+
+    // // change icon colors
+    // $('#changeColor').on('click', function(){
+
+    //     var newColor = '#' + $('#newColor').val();
+
+    //     $('li i').each(function(i, elem){
+    //         console.log(i, elem);
+    //         $(elem).css('backgroundImage', function(i, val){
+    //             var changeColor = val.replace(currentColor, newColor);
+    //             return changeColor;
+    //         });
+    //     });
+
+    // });
 
     // click to add to download list
     $(document).on('click', '#glyph-list li', function(e){
@@ -46,7 +62,7 @@ $(function(){
             }).join();
 
         // Make an ajax call to download.cfm which will prep
-        $.post( 'download.cfm', {
+        $.get( 'download.cfm', {
             icon_list: icon_list
         })
         .done(function( data ) {

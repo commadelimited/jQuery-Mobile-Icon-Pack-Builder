@@ -27,6 +27,7 @@ component {
      * @hint The onRequestStart method finishes. (This method can filter request contents.)
      */
     public void function onRequest(String targetPage){
+        include 'icons.cfm';
         include arguments.targetPage;
     }
 
