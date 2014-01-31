@@ -33,14 +33,13 @@
                     <span>1. Click an icon to add it to your set.</span>
                     <small><a class="js-btn-none">Clear</a></small>
                 </h2>
-                <!--- <p id="previewColor">
-                    Change colors: #<input type-"text" id="newColor" />
-                    <button id="changeColor">Change color</button>
-                </p> --->
+                <p>
+
+                </p>
                 <ul id="glyph-list">
                 <cfoutput>
-                    <cfloop index="icon" array="#variables.icon_array#">
-                        <li>
+                    <cfloop index="icon" array="#icon_array#">
+                        <li title="#icon.name#">
                             <i class="#icon.name#"></i>
                         </li>
                     </cfloop>
@@ -59,7 +58,7 @@
                     <small>(CSS, LESS &amp; SCSS files)</small>
                 </h2>
                 <div id="download">
-                    <button class="btn btn-large btn-success icon-large btn-download"> Download Now</button>
+                    <a href="#" class="btn btn-large btn-success disabled"> Download Now</a>
                 </div>
                 <p>
                     <br>

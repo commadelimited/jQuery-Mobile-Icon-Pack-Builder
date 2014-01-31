@@ -11,22 +11,10 @@ $(function(){
 
         // remove them from the selected list
         $selected_list.find('li').remove();
+
+        // should download button show?
+        buttonStatus();
     });
-
-    // // change icon colors
-    // $('#changeColor').on('click', function(){
-
-    //     var newColor = '#' + $('#newColor').val();
-
-    //     $('li i').each(function(i, elem){
-    //         console.log(i, elem);
-    //         $(elem).css('backgroundImage', function(i, val){
-    //             var changeColor = val.replace(currentColor, newColor);
-    //             return changeColor;
-    //         });
-    //     });
-
-    // });
 
     // click to add to download list
     $(document).on('click', '#glyph-list li', function(e){
@@ -38,12 +26,19 @@ $(function(){
         $(this).addClass('selected');
 
         // add to selected list, only if it's not been added already
-        if ( !$selected_list.find(className).length ) {
-            $selected_list.append(template);
+        try {
+            if ( !$selected_list.find(className).length ) {
+                $selected_list.append(template);
+            }
+        } catch(error) {
+            console.log(error);
         }
+
+        // should download button show?
+        buttonStatus();
     });
 
-    // click to add to download list
+    // click to remove from download list
     $(document).on('click', '#selected-glyph-list li', function(e){
         var className = '.' + $(this).find('i').get(0).className;
 
@@ -52,12 +47,20 @@ $(function(){
 
         // remove selected class from icon in main list
         $list.find(className).parent('li').removeClass('selected');
+
+        // should download button show?
+        buttonStatus();
     });
 
     // Download icons
-    $('#download button').on('click', function(e){
-        // get a list of the icons selected by the user
-        var icon_list = $.map($selected_list.find('i'), function(icon, index){
+    $(document).on('click', '#download a:not(.disabled)', function(e){
+
+        e.preventDefault();
+        $('body').css('cursor', 'wait');
+
+        var $a = $(this),
+            link = 'download.cfm?icon_list=',
+            icon_list = $.map($selected_list.find('i'), function(icon, index){
                 return $(icon).attr('class');
             }).join();
 
@@ -66,10 +69,21 @@ $(function(){
             icon_list: icon_list
         })
         .done(function( data ) {
-            alert( data );
+            $('body').css('cursor', 'default');
+            location.href = data;
         });
 
     });
+
+    function buttonStatus() {
+        // if there are items in the selected list, enable the button
+        // else disable it
+        if ( $selected_list.find('li').length > 0) {
+            $('#download a').removeClass('disabled');
+        } else {
+            $('#download a').addClass('disabled');
+        }
+    }
 
 });
 
