@@ -64,9 +64,10 @@
                 </div>
                 <p>
                     <br>
-                    Having trouble building your custom icon set?
-                    <br>
-                    <a href="http://twitter.com/commadelimited">Let me know about it</a>.
+                    Having trouble building your custom icon set? Let me know about it
+                </p>
+                <p>
+                    Made by <a href="http://twitter.com/commadelimited">@commadelimited</a>.
                 </p>
             </div>
         </div>

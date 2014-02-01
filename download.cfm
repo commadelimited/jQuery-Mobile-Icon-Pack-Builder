@@ -8,6 +8,7 @@
 <cfset zip_file_path = expandPath("zips/#zip_file_name#")>
 <cfset css_file_name = 'icon-pack-custom.css'>
 <cfset scss_file_name = 'icon-pack-custom.scss'>
+<cfset less_file_name = 'icon-pack-custom.less'>
 <cfset index_file_name = 'index.html'>
 <cfset html_content = ''>
 
@@ -34,6 +35,14 @@ $icon_color: '#color#';
 </cfoutput>
 </cfsavecontent>
 
+<!--- Contents of LESS file --->
+<cfsavecontent variable="less_file">
+<cfoutput>
+#css_header#
+@icon_color: '#color#';
+</cfoutput>
+</cfsavecontent>
+
 <!--- Loop over the incoming selected icons --->
 <cfloop list="#icons#" index="string_icon">
     <!--- Loop over the icon_array to find the icon packet --->
@@ -55,6 +64,13 @@ $icon_color: '#color#';
 
 ">
 
+            <!--- the LESS file contents --->
+            <cfset less_file &= "
+.ui-icon-#icon.name#:after { background-image: url('#Replace(icon.xml, "##000000", "@{icon_color}")#') }
+.ui-nosvg .ui-icon-#icon.name#:after { background-image: url('#icon.name#.png'); }
+
+">
+
             <!--- demo HTML file --->
             <cfset html_content &= '<a href="index.html" data-role="button" data-icon="#icon.name#" >data-icon="#icon.name#"</a>
             '>
@@ -66,6 +82,7 @@ $icon_color: '#color#';
 <cfzip file="#zip_file_path#" action="zip">
     <cfzipparam content="#css_file#" entrypath="#css_file_name#">
     <cfzipparam content="#scss_file#" entrypath="#scss_file_name#">
+    <cfzipparam content="#less_file#" entrypath="#less_file_name#">
     <cfzipparam content="#Replace(html_file_template, 'ICONS_GO_HERE', html_content)#" entrypath="#index_file_name#">
     <cfloop list="#icons#" index="string_icon">
         <cfzipparam source="#expandPath('png_icons/')##string_icon#.png" entrypath="png_images/#string_icon#.png">
