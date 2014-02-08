@@ -2,7 +2,7 @@
 
 <!--- page variables --->
 <cfset icons = URL.icon_list>
-<cfset color = "##000000">
+<cfset color = "##ffffff">
 <cfset right_now = Now()>
 <cfset zip_file_name = "#DateFormat(right_now, 'yyyy-mm-dd')#-#TimeFormat(right_now, 'HH-mm-ss-lll')#.zip">
 <cfset zip_file_path = expandPath("zips/#zip_file_name#")>
@@ -59,14 +59,14 @@ $icon_color: '#color#';
 
             <!--- the SCSS file contents --->
             <cfset scss_file &= "
-.ui-icon-#icon.name#:after { background-image: url('#Replace(icon.xml, "##000000", "##{$icon_color}")#') }
+.ui-icon-#icon.name#:after { background-image: url('#Replace(icon.xml, "##ffffff", "##{$icon_color}")#') }
 .ui-nosvg .ui-icon-#icon.name#:after { background-image: url('#icon.name#.png'); }
 
 ">
 
             <!--- the LESS file contents --->
             <cfset less_file &= "
-.ui-icon-#icon.name#:after { background-image: url('#Replace(icon.xml, "##000000", "@{icon_color}")#') }
+.ui-icon-#icon.name#:after { background-image: url('#Replace(icon.xml, "##ffffff", "@{icon_color}")#') }
 .ui-nosvg .ui-icon-#icon.name#:after { background-image: url('#icon.name#.png'); }
 
 ">
