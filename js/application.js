@@ -31,7 +31,7 @@ $(function(){
                 $selected_list.append(template);
             }
         } catch(error) {
-            console.log(error);
+            // console.log(error);
         }
 
         // should download button show?
