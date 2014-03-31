@@ -7,7 +7,7 @@
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/application.js"></script>
     <link rel="stylesheet" type="text/css" href="css/icon-pack.css" />
-    <link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa.css" />
+    <link rel="stylesheet" type="text/css" href="css/jqm-icon-pack-fa-builder.css" />
 </head>
 
 <body>
