@@ -4,5 +4,4 @@ Builder for jQuery Mobile Icon Pack is an extension of [jQuery Mobile Icon Pack 
 
 Try [Builder for jQuery Mobile Icon Pack](http://andymatthews.net/code/jQuery-Mobile-Icon-Pack/builder/) today.
 
-
 Builder for jQuery Mobile Icon Pack allows you to build a custom set of icons perfectly suited for your jQuery Mobile project.
